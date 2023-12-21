@@ -1,41 +1,51 @@
 ﻿using System;
+using System.Numerics;
 
-// ICalculator interface
-public interface ICalculator
+
+public interface ICalculator<Generic>
 {
-    double Addition(double x, double y);
-    double Subtraction(double x, double y);
-    double Multiplication(double x, double y);
-    double Division(double x, double y);
+    Generic Add(Generic operand1, Generic operand2);
+    Generic Subtract(Generic operand1, Generic operand2);
+    Generic Multiply(Generic operand1, Generic operand2);
+    Generic Divide(Generic operand1, Generic operand2);
 }
 
-// Calculator class
-public class Calculator : ICalculator
+
+public class Calculator<Generic> : ICalculator<Generic>
+    where Generic : INumber<Generic>
 {
-    public double Addition(double x, double y)
+    public Generic Add(Generic operand1, Generic operand2)
     {
-        return x + y;
+        
+        return operand1 + operand2;
     }
 
-    public double Subtraction(double x, double y)
+    public Generic Subtract(Generic operand1, Generic operand2)
     {
-        return x - y;
+        Generic value1 = operand1;
+        Generic value2 = operand2;
+        return value1 - value2;
     }
 
-    public double Multiplication(double x, double y)
+    public Generic Multiply(Generic operand1, Generic operand2)
     {
-        return x * y;
+        Generic value1 = operand1;
+        Generic value2 = operand2;
+        return value1 * value2;
     }
 
-    public double Division(double x, double y)
+
+    public Generic Divide(Generic operand1, Generic operand2)
     {
-        if (y != 0)
-        {
-            return x / y;
-        }
-        else
-        {
-            throw new ArgumentException("Cannot divide by zero");
-        }
+        Generic value1 = operand1;
+        Generic value2 = operand2;
+
+       
+
+        return value1 / value2;
     }
+
+   
+
+   
 }

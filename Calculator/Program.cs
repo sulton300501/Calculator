@@ -1,21 +1,15 @@
-﻿using System;
-
-// ICalculator interface
-
-class Program
+﻿class Program
 {
     static void Main()
     {
-        Calculator calc = new Calculator();
+        
+        Calculator<int> intCalculator = new Calculator<int>();
+        Console.WriteLine(intCalculator.Add(5, 3));      
+        Console.WriteLine(intCalculator.Subtract(7, 2)); 
+        Console.WriteLine(intCalculator.Multiply(4, 6));  
+        Console.WriteLine(intCalculator.Divide(8, 2));   
 
-        double qoshish = calc.Addition(5, 3);
-        double ayirish = calc.Subtraction(5, 3);
-        double kopaytr = calc.Multiplication(5, 3);
-        double bolish = calc.Division(5, 3);
-
-        Console.WriteLine($"Qoshish: {qoshish}");
-        Console.WriteLine($"Ayirish: {ayirish}");
-        Console.WriteLine($"Kopaytrish: {kopaytr}");
-        Console.WriteLine($"Bo'lish: {bolish}");
+    
     }
 }
+
